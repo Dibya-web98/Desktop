@@ -1,0 +1,42 @@
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: block; /* Stack the nav items vertically on tablet */
+        text-align: center;
+    }
+}
+.hero-slide {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-slide h1 {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.hero-slide p {
+    font-size: 1.25rem;
+}
+
+.btn-read-more {
+    margin-top: 20px;
+}
+
+

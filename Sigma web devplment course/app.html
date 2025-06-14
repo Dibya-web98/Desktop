@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2 id="question">Question will appear here</h2>
+        <div id="options"></div>
+        <button id="next-btn">Next</button>
+        <p id="score">Score: 0</p>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                answer: "4"
+            },
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                answer: "Paris"
+            }
+        ];let currentQuestionIndex = 0;
+    let score = 0;
+    
+    function showQuestion() {
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        questionElement.textContent = questions[currentQuestionIndex].question;
+        optionsElement.innerHTML = "";
+        
+        questions[currentQuestionIndex].options.forEach(option => {
+            const button = document.createElement("button");
+            button.textContent = option;
+            button.onclick = () => checkAnswer(option);
+            optionsElement.appendChild(button);
+        });
+    }
+    
+    function checkAnswer(answer) {
+        if (answer === questions[currentQuestionIndex].answer) {
+            score++;
+            document.getElementById("score").textContent = "Score: " + score;
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            document.getElementById("question").textContent = "Quiz Over!";
+            document.getElementById("options").innerHTML = "";
+            document.getElementById("next-btn").style.display = "none";
+        }
+    }
+    
+    document.getElementById("next-btn").addEventListener("click", showQuestion);
+    showQuestion();
+</script>
+
+</body>
+</html>
