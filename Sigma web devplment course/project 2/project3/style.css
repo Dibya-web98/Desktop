@@ -1,0 +1,34 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: url('wedding.jpg') no-repeat center center/cover;
+  color: lab(3.02% 0 0);
+}
+
+header {
+  background-color: rgba(95, 10, 232, 0.5);
+  padding: 30px;
+}
+
+.details, .rsvp {
+  background-color: rgba(11, 211, 242, 0.908);
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: hwb(330 2% 5%);
+  color: rgb(14, 8, 8);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #14a1ff;
+}
